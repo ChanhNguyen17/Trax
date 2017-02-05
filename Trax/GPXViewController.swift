@@ -61,6 +61,27 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.leftCalloutAccessoryView {
+            performSegue(withIdentifier: Constants.ShowImageSegue, sender: view)
+        }
+    }
+    
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination.contentViewController
+        let annotationView = sender as? MKAnnotationView
+        let waypoint = annotationView?.annotation as? GPX.Waypoint
+        
+        if segue.identifier == Constants.ShowImageSegue {
+            if let ivc = destination as? ImageViewController {
+                ivc.imageURL = waypoint?.imageURL
+                ivc.title = waypoint?.name
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         gpxURL = URL(string: "http://cs193p.stanford.edu/Vacation.gpx")
@@ -80,6 +101,16 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
         static let AnnotationViewReuseIdentifier = "waypoint"
         static let ShowImageSegue = "Show Image"
         static let EditUserWaypoint = "Edit Waypoint"
+    }
+}
+
+extension UIViewController {
+    var contentViewController: UIViewController {
+        if let navcon = self as? UINavigationController {
+            return navcon.visibleViewController ?? navcon
+        } else {
+            return self
+        }
     }
 }
 
