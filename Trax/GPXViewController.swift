@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class GPXViewController: UIViewController, MKMapViewDelegate {
+class GPXViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentationControllerDelegate {
     
     var gpxURL: URL? {
         didSet {
@@ -101,8 +101,40 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
         } else if segue.identifier == Constants.EditUserWaypoint {
             if let editableWaypoint = waypoint as? EditableWaypoint,
                 let ewvc = destination as? EditWaypointViewController {
+                if let ppc = ewvc.popoverPresentationController {
+                    ppc.sourceRect = annotationView!.frame
+                    ppc.delegate = self
+                }
                 ewvc.waypointToEdit = editableWaypoint
             }
+        }
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        selectWaypoint((popoverPresentationController.presentedViewController as? EditWaypointViewController)?.waypointToEdit)
+    }
+    
+    
+    func adaptivePresentationStyle(
+        for controller: UIPresentationController,
+        traitCollection: UITraitCollection
+        ) -> UIModalPresentationStyle {
+        return traitCollection.horizontalSizeClass == .compact ? .overFullScreen : .none
+    }
+    
+    func presentationController(
+        _ controller: UIPresentationController,
+        viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle
+        ) -> UIViewController? {
+        if style == .fullScreen || style == .overFullScreen {
+            let navcon = UINavigationController(rootViewController: controller.presentedViewController)
+            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+            visualEffectView.frame = navcon.view.bounds
+            visualEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            navcon.view.insertSubview(visualEffectView, at: 0)
+            return navcon
+        } else {
+            return nil
         }
     }
     
