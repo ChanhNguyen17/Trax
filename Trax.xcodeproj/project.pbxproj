@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		83230C8B1E476B99005BA364 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83230C8A1E476B99005BA364 /* AppDelegate.swift */; };
-		83230C8D1E476B99005BA364 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83230C8C1E476B99005BA364 /* ViewController.swift */; };
+		83230C8D1E476B99005BA364 /* GPXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83230C8C1E476B99005BA364 /* GPXViewController.swift */; };
 		83230C901E476B99005BA364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83230C8E1E476B99005BA364 /* Main.storyboard */; };
 		83230C921E476B99005BA364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83230C911E476B99005BA364 /* Assets.xcassets */; };
 		83230C951E476B99005BA364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83230C931E476B99005BA364 /* LaunchScreen.storyboard */; };
+		83230C9E1E476E1C005BA364 /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83230C9D1E476E1C005BA364 /* GPX.swift */; };
+		83230CA01E476F8B005BA364 /* MKGPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83230C9F1E476F8B005BA364 /* MKGPX.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		83230C871E476B99005BA364 /* Trax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83230C8A1E476B99005BA364 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		83230C8C1E476B99005BA364 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		83230C8C1E476B99005BA364 /* GPXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXViewController.swift; sourceTree = "<group>"; };
 		83230C8F1E476B99005BA364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		83230C911E476B99005BA364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83230C941E476B99005BA364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83230C961E476B99005BA364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83230C9D1E476E1C005BA364 /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
+		83230C9F1E476F8B005BA364 /* MKGPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGPX.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,24 @@
 		83230C891E476B99005BA364 /* Trax */ = {
 			isa = PBXGroup;
 			children = (
-				83230C8A1E476B99005BA364 /* AppDelegate.swift */,
-				83230C8C1E476B99005BA364 /* ViewController.swift */,
+				83230C9C1E476C5B005BA364 /* Supporting Files */,
+				83230C8C1E476B99005BA364 /* GPXViewController.swift */,
 				83230C8E1E476B99005BA364 /* Main.storyboard */,
+				83230C9D1E476E1C005BA364 /* GPX.swift */,
+				83230C9F1E476F8B005BA364 /* MKGPX.swift */,
+			);
+			path = Trax;
+			sourceTree = "<group>";
+		};
+		83230C9C1E476C5B005BA364 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83230C8A1E476B99005BA364 /* AppDelegate.swift */,
 				83230C911E476B99005BA364 /* Assets.xcassets */,
 				83230C931E476B99005BA364 /* LaunchScreen.storyboard */,
 				83230C961E476B99005BA364 /* Info.plist */,
 			);
-			path = Trax;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +151,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83230C8D1E476B99005BA364 /* ViewController.swift in Sources */,
+				83230C8D1E476B99005BA364 /* GPXViewController.swift in Sources */,
+				83230CA01E476F8B005BA364 /* MKGPX.swift in Sources */,
 				83230C8B1E476B99005BA364 /* AppDelegate.swift in Sources */,
+				83230C9E1E476E1C005BA364 /* GPX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
