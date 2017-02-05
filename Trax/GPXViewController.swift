@@ -94,6 +94,15 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    @IBAction func addWayPoint(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            let coordinate = mapView.convert(sender.location(in: mapView), toCoordinateFrom: mapView)
+            let waypoint = GPX.Waypoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            waypoint.name = "Dropped"
+            mapView.addAnnotation(waypoint)
+        }
+    }
+    
     // MARK: Constants
     
     fileprivate struct Constants {

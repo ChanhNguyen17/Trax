@@ -23,6 +23,10 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="flL-YC-f8P">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="mTH-Nb-NeI" appends="YES" id="nh3-nP-FB4"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,8 +44,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="mTH-Nb-NeI">
+                    <connections>
+                        <action selector="addWayPoint:" destination="BYZ-38-t0r" id="d5c-J6-rR5"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1062" y="-125"/>
+            <point key="canvasLocation" x="1036" y="-124"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="OAk-iX-EzC">
