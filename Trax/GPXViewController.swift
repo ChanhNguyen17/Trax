@@ -45,9 +45,13 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
         view.isDraggable = annotation is EditableWaypoint
         
         view.leftCalloutAccessoryView = nil
+        view.rightCalloutAccessoryView = nil
         if let waypoint = annotation as? GPX.Waypoint {
             if waypoint.thumbnailURL != nil {
                 view.leftCalloutAccessoryView = UIButton(frame: Constants.LeftCalloutFrame)
+            }
+            if waypoint is EditableWaypoint {
+                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             }
         }
         
@@ -66,10 +70,23 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.leftCalloutAccessoryView {
             performSegue(withIdentifier: Constants.ShowImageSegue, sender: view)
+        } else if control == view.rightCalloutAccessoryView {
+            mapView.deselectAnnotation(view.annotation, animated: true)
+            performSegue(withIdentifier: Constants.EditUserWaypoint, sender: view)
         }
     }
     
     // MARK: Navigation
+    
+    @IBAction func updatedUserWaypoint(segue: UIStoryboardSegue) {
+        selectWaypoint((segue.source.contentViewController as? EditWaypointViewController)?.waypointToEdit)
+    }
+    
+    private func selectWaypoint(_ waypoint: GPX.Waypoint?) {
+        if waypoint != nil {
+            mapView.selectAnnotation(waypoint!, animated: true)
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination.contentViewController
@@ -80,6 +97,11 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
             if let ivc = destination as? ImageViewController {
                 ivc.imageURL = waypoint?.imageURL
                 ivc.title = waypoint?.name
+            }
+        } else if segue.identifier == Constants.EditUserWaypoint {
+            if let editableWaypoint = waypoint as? EditableWaypoint,
+                let ewvc = destination as? EditWaypointViewController {
+                ewvc.waypointToEdit = editableWaypoint
             }
         }
     }

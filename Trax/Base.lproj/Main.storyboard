@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,6 +42,7 @@
                     <connections>
                         <outlet property="mapView" destination="flL-YC-f8P" id="E6X-Jv-o0R"/>
                         <segue destination="4V0-X9-3Rs" kind="show" identifier="Show Image" id="xDO-5L-yot"/>
+                        <segue destination="WtZ-CL-2Jo" kind="presentation" identifier="Edit Waypoint" id="5us-pD-VYQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -50,7 +52,87 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1036" y="-124"/>
+            <point key="canvasLocation" x="1026" y="-211"/>
+        </scene>
+        <!--Edit Waypoint View Controller-->
+        <scene sceneID="k2V-Bj-DpD">
+            <objects>
+                <viewController id="dNf-qw-zO1" customClass="EditWaypointViewController" customModule="Trax" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IIR-sf-Y32"/>
+                        <viewControllerLayoutGuide type="bottom" id="qIL-2n-yBu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X2b-Ta-KIk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fZS-iG-2Ya">
+                                <rect key="frame" x="16" y="72" width="343" height="68"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mbd-Rc-qhW">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2R-BT-Woy">
+                                                <rect key="frame" x="0.0" y="0.0" width="88" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="88" id="sNj-EQ-ASC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Mj-X4-Xep">
+                                                <rect key="frame" x="96" y="0.0" width="247" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bv7-N7-fkh">
+                                        <rect key="frame" x="0.0" y="38" width="343" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUX-ao-KRo">
+                                                <rect key="frame" x="0.0" y="0.0" width="88" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNM-1K-A7t">
+                                                <rect key="frame" x="96" y="0.0" width="247" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fZS-iG-2Ya" firstAttribute="trailing" secondItem="X2b-Ta-KIk" secondAttribute="trailingMargin" id="ByQ-EH-RwE"/>
+                            <constraint firstItem="fZS-iG-2Ya" firstAttribute="top" secondItem="IIR-sf-Y32" secondAttribute="bottom" constant="8" symbolic="YES" id="D00-ew-IyU"/>
+                            <constraint firstItem="qIL-2n-yBu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fZS-iG-2Ya" secondAttribute="bottom" constant="8" symbolic="YES" id="ZVw-3m-Iir"/>
+                            <constraint firstItem="fZS-iG-2Ya" firstAttribute="leading" secondItem="X2b-Ta-KIk" secondAttribute="leadingMargin" id="gGe-yn-Tzw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="L26-xV-Vj1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="EFE-g9-Zn8">
+                            <connections>
+                                <segue destination="xCC-h7-gjL" kind="unwind" unwindAction="updatedUserWaypointWithSegue:" id="xvT-YY-Vgm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="infoTextField" destination="bNM-1K-A7t" id="kJ3-WI-WKe"/>
+                        <outlet property="nameTextField" destination="5Mj-X4-Xep" id="82a-r0-9yX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I5T-ze-Dbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xCC-h7-gjL" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3184.8000000000002" y="-636.4317841079461"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="OAk-iX-EzC">
@@ -109,6 +191,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EcK-sV-vkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="181.59999999999999" y="198.35082458770617"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="I6k-Ir-8Yn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WtZ-CL-2Jo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q7b-Hy-32i">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dNf-qw-zO1" kind="relationship" relationship="rootViewController" id="Vtq-wW-9zH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M7H-4h-dGs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2245.5999999999999" y="-636.4317841079461"/>
         </scene>
     </scenes>
 </document>

@@ -15,6 +15,7 @@
 		83230C9E1E476E1C005BA364 /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83230C9D1E476E1C005BA364 /* GPX.swift */; };
 		83230CA01E476F8B005BA364 /* MKGPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83230C9F1E476F8B005BA364 /* MKGPX.swift */; };
 		83230CA21E47B0A8005BA364 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83230CA11E47B0A8005BA364 /* ImageViewController.swift */; };
+		83230CA41E47B931005BA364 /* EditWaypointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83230CA31E47B931005BA364 /* EditWaypointViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		83230C9D1E476E1C005BA364 /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
 		83230C9F1E476F8B005BA364 /* MKGPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGPX.swift; sourceTree = "<group>"; };
 		83230CA11E47B0A8005BA364 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		83230CA31E47B931005BA364 /* EditWaypointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWaypointViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				83230C9D1E476E1C005BA364 /* GPX.swift */,
 				83230C9F1E476F8B005BA364 /* MKGPX.swift */,
 				83230CA11E47B0A8005BA364 /* ImageViewController.swift */,
+				83230CA31E47B931005BA364 /* EditWaypointViewController.swift */,
 			);
 			path = Trax;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			files = (
 				83230C8D1E476B99005BA364 /* GPXViewController.swift in Sources */,
 				83230CA01E476F8B005BA364 /* MKGPX.swift in Sources */,
+				83230CA41E47B931005BA364 /* EditWaypointViewController.swift in Sources */,
 				83230CA21E47B0A8005BA364 /* ImageViewController.swift in Sources */,
 				83230C8B1E476B99005BA364 /* AppDelegate.swift in Sources */,
 				83230C9E1E476E1C005BA364 /* GPX.swift in Sources */,
